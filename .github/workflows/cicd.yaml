@@ -43,5 +43,5 @@ jobs:
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
       - name: Deploy App
         run: |
-          az webapp create -g fe-template_group -n be-objects -p ASP-DefaultResourceGroupEUS-9e50 (F1: 1) -i ${{ env.IMAGE }}
-          az webapp restart -g fe-template_group -n ASP-DefaultResourceGroupEUS-9e50 (F1: 1)
+          az webapp create -g fe-template_group -n be-objects -p ASP-DefaultResourceGroupEUS-9e50 -i ${{ env.IMAGE }}
+          az webapp restart -g fe-template_group -n ASP-DefaultResourceGroupEUS-9e50
