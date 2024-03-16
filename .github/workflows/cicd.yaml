@@ -35,7 +35,7 @@ jobs:
   deploy:
     needs: docker-build-push
     runs-on: ubuntu-latest
-    environment: cicd
+    
     steps:
       - name: Azure login
         uses: azure/login@v2
