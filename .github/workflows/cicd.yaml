@@ -42,6 +42,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
       - name: Deploy App
-        run: |
-          az webapp create -g be-objects_group -n be-objects -p ASP-DefaultResourceGroupEUS-9e50 -i ${{ env.IMAGE }}
-          az webapp restart -g be-objects_group -n ASP-DefaultResourceGroupEUS-9e50
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'be-objects'
+          images: ${{ env.IMAGE }}
