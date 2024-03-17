@@ -2,9 +2,7 @@ name: CICD
 
 on:
   push:
-    branches:
-      - main
-  workflow_dispatch:
+    branches: ['main']
 
 env:
   REGISTRY: ghcr.io
@@ -35,7 +33,7 @@ jobs:
   deploy:
     needs: docker-build-push
     runs-on: ubuntu-latest
-    
+    environment: cicd
     steps:
       - name: Azure login
         uses: azure/login@v2
@@ -44,6 +42,7 @@ jobs:
           subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
       - name: Deploy App
-        run: |
-          az webapp create -g fe-template_group -n be-objects -p ASP-DefaultResourceGroupEUS-9e50 (F1: 1) -i ${{ env.IMAGE }}
-          az webapp restart -g fe-template_group -n ASP-DefaultResourceGroupEUS-9e50 (F1: 1)
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'be-objects'
+          images: ${{ env.IMAGE }}
