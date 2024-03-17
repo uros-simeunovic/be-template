@@ -15,7 +15,7 @@ app.use(
 // app.use("/objects", ObjectRoute);
 
 app.get("/", (req, res) => {
-  res.json({ message: "Radi" });
+  res.json({ message: "Radii" });
 });
 
 app.listen(8080, () => console.log("Server started..."));
