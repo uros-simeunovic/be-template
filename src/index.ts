@@ -1,11 +1,11 @@
 import express from "express";
-import ObjectRoute from "./routes/ObjectRoute";
+// import ObjectRoute from "./routes/ObjectRoute";
 
 const app = express();
 
 app.use(express.json());
 
-app.use("/objects", ObjectRoute);
+// app.use("/objects", ObjectRoute);
 
 app.get("/", (req, res) => {
   res.json({ message: "Radi" });

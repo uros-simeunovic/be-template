@@ -1,1 +1,6 @@
 node_modules
+prisma
+.github
+src/db.ts
+src/controllers
+src/routes
